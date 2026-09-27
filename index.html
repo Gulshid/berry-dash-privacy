@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Berry Dash</title>
+<meta name="description" content="Privacy Policy for Berry Dash, the endless-runner game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6F0;
+    --paper-raised:#FFFFFF;
+    --ink:#241823;
+    --ink-soft:#5B4E58;
+    --line:#E6DED6;
+    --berry:#7E2148;
+    --berry-deep:#5A1733;
+    --gold:#C98A2E;
+    --gold-soft:#F1D9A8;
+    --leaf:#5C7A52;
+    --focus:#2E6E8E;
+    --radius-sm:6px;
+    --radius-lg:14px;
+    --max:760px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--berry-deep);text-decoration-color:var(--gold);text-decoration-thickness:1.5px;text-underline-offset:3px;}
+  a:hover{color:var(--berry);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:40;
+    background:rgba(250,246,240,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1180px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--berry-deep);}
+  .brand-mark{
+    width:30px;height:30px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #E68FAE 0%, var(--berry) 55%, var(--berry-deep) 100%);
+    flex-shrink:0;
+    box-shadow: inset 0 -2px 3px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.15);
+  }
+  .topbar-meta{font-size:0.8rem;color:var(--ink-soft);}
+  #toc-toggle{
+    display:none;
+    background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:8px 14px;font:inherit;font-size:0.85rem;color:var(--ink);cursor:pointer;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{max-width:var(--max);margin:0 auto;padding:64px 24px 8px;text-align:left;}
+  .hero .eyebrow{
+    font-size:0.8rem;letter-spacing:0.02em;color:var(--berry-deep);
+    display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;
+  }
+  .hero .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:600;font-optical-sizing:auto;
+    font-size:clamp(2.3rem, 5vw, 3.4rem);
+    line-height:1.05;margin:0 0 20px;color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .hero p.lede{font-size:1.12rem;color:var(--ink-soft);max-width:58ch;margin:0 0 6px;}
+  .hero .updated{font-size:0.9rem;color:var(--ink-soft);margin-top:22px;}
+  .hero .updated strong{color:var(--ink);font-weight:600;}
+
+  /* ---------- Quick facts ---------- */
+  .quickfacts{max-width:var(--max);margin:36px auto 0;padding:0 24px;}
+  .quickfacts-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
+  }
+  .qf{background:var(--paper-raised);padding:22px 20px;}
+  .qf-label{font-size:0.72rem;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:9px;}
+  .qf-value{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--berry-deep);line-height:1.3;}
+  .qf-sub{font-size:0.82rem;color:var(--ink-soft);margin-top:6px;line-height:1.4;}
+
+  @media (max-width:760px){
+    .quickfacts-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- Layout: sidebar + content ---------- */
+  .layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:250px 1fr;gap:56px;padding:56px 24px 100px;align-items:start;}
+
+  nav.toc{position:sticky;top:78px;}
+  nav.toc h2{font-size:0.75rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 14px;font-weight:600;}
+  nav.toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);}
+  nav.toc li{margin:0;}
+  nav.toc a{
+    display:block;padding:7px 0 7px 16px;margin-left:-2px;border-left:2px solid transparent;
+    font-size:0.9rem;color:var(--ink-soft);text-decoration:none;transition:color .15s, border-color .15s;
+  }
+  nav.toc a:hover{color:var(--ink);}
+  nav.toc a.active{color:var(--berry-deep);border-left-color:var(--berry);font-weight:600;}
+
+  main{max-width:var(--max);}
+
+  section.doc-section{padding:34px 0;border-bottom:1px solid var(--line);scroll-margin-top:88px;}
+  section.doc-section:last-of-type{border-bottom:none;}
+  section.doc-section h2{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;margin:0 0 4px;color:var(--ink);
+  }
+  section.doc-section .section-index{font-size:0.78rem;color:var(--gold);font-weight:600;letter-spacing:0.03em;display:block;margin-bottom:6px;}
+  section.doc-section h3{font-size:1.05rem;font-weight:600;margin:26px 0 8px;color:var(--berry-deep);}
+  section.doc-section p{margin:0 0 14px;color:var(--ink);}
+  section.doc-section p.muted{color:var(--ink-soft);font-size:0.92rem;}
+  section.doc-section ul{margin:0 0 14px;padding-left:20px;}
+  section.doc-section li{margin-bottom:8px;}
+  section.doc-section li::marker{color:var(--gold);}
+
+  .callout{
+    background:var(--paper-raised);border:1px solid var(--line);border-left:3px solid var(--berry);
+    border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 18px;margin:18px 0;font-size:0.94rem;
+  }
+  .callout strong{color:var(--berry-deep);}
+
+  table.datamap{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:0.92rem;}
+  table.datamap th{
+    text-align:left;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.03em;
+    color:var(--ink-soft);padding:0 12px 10px 0;border-bottom:1px solid var(--line);font-weight:600;
+  }
+  table.datamap td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.datamap tr:last-child td{border-bottom:none;}
+  table.datamap td.label{font-weight:600;color:var(--ink);white-space:nowrap;}
+
+  .pill{
+    display:inline-block;font-size:0.72rem;font-weight:600;padding:2px 9px;border-radius:99px;
+    background:var(--gold-soft);color:#6B4C15;margin-right:4px;
+  }
+  .pill.leaf{background:#DCE6D5;color:#3E5636;}
+  .pill.berry{background:#F0D6E1;color:var(--berry-deep);}
+
+  footer.page-footer{
+    max-width:1180px;margin:0 auto;padding:0 24px 60px;
+  }
+  .footer-inner{max-width:var(--max);border-top:1px solid var(--line);padding-top:28px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.85rem;color:var(--ink-soft);}
+
+  #back-to-top{
+    position:fixed;right:22px;bottom:22px;z-index:50;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    background:var(--paper-raised);color:var(--berry-deep);font-size:1.1rem;cursor:pointer;
+    box-shadow:0 6px 18px rgba(36,24,35,0.14);
+    opacity:0;pointer-events:none;transition:opacity .2s;
+  }
+  #back-to-top.show{opacity:1;pointer-events:auto;}
+
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;padding-top:24px;}
+    nav.toc{position:static;order:-1;margin-bottom:8px;}
+    nav.toc-desktop{display:none;}
+    #toc-toggle{display:inline-block;}
+    .toc-panel{
+      display:none;background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius-lg);
+      padding:16px 20px;margin-top:12px;
+    }
+    .toc-panel.open{display:block;}
+    .toc-panel h2{display:none;}
+    .toc-panel ol{border-left:none;padding-left:0;}
+    .toc-panel a{padding:8px 0;border-left:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    #back-to-top{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span> Berry Dash</div>
+    <div class="topbar-meta" id="topbar-updated">Privacy Policy · Updated 27 Sept 2026</div>
+    <button id="toc-toggle" aria-expanded="false" aria-controls="toc-panel">Contents ▾</button>
+  </div>
+  <div class="toc-panel" id="toc-panel"></div>
+</div>
+
+<div class="hero">
+  <span class="eyebrow">Berry Dash · Privacy Policy</span>
+  <h1>How Berry Dash handles your information</h1>
+  <p class="lede">Berry Dash is built to run mostly on your own device. This page explains, in plain language, exactly what leaves it, where it goes, and what say you have over it.</p>
+  <p class="updated">Effective <strong>27 September 2026</strong> · Applies to the Berry Dash app on Android and iOS</p>
+</div>
+
+<div class="quickfacts">
+  <div class="quickfacts-grid">
+    <div class="qf">
+      <div class="qf-label">Account needed</div>
+      <div class="qf-value">No sign-up</div>
+      <div class="qf-sub">A random player ID is created automatically. Linking a Google account is optional.</div>
+    </div>
+    <div class="qf">
+      <div class="qf-label">Sold to advertisers</div>
+      <div class="qf-value">Never</div>
+      <div class="qf-sub">We don't sell or rent your information to anyone.</div>
+    </div>
+    <div class="qf">
+      <div class="qf-label">Ads</div>
+      <div class="qf-value">Optional, reward-based</div>
+      <div class="qf-sub">Served by Google AdMob only when you choose to watch one.</div>
+    </div>
+    <div class="qf">
+      <div class="qf-label">Made for children</div>
+      <div class="qf-value">Not directed at under-13s</div>
+      <div class="qf-sub">See "Children's privacy" below for details.</div>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="toc toc-desktop" aria-label="Table of contents">
+    <h2>On this page</h2>
+    <ol id="toc-list-desktop"></ol>
+  </nav>
+
+  <main>
+
+    <section class="doc-section" id="overview">
+      <span class="section-index">01</span>
+      <h2>Overview</h2>
+      <p>Berry Dash ("the game," "we," "us") is an endless-runner game published by the developer identified in the Contact section below. This policy describes what information the game collects while you play, how it's used, who it's shared with, and the choices available to you.</p>
+      <p>Most of your progress — your high score, coins, unlocked skins, and achievements — is stored only on your device and never leaves it. A small amount of information is sent off-device so that features like the global leaderboard and optional rewarded ads can work.</p>
+    </section>
+
+    <section class="doc-section" id="information-we-collect">
+      <span class="section-index">02</span>
+      <h2>Information we collect</h2>
+
+      <h3>Player identity</h3>
+      <p>The first time you open Berry Dash, we create an anonymous player ID for you through Firebase Authentication. This ID is a random string, not tied to your name, email, or any other personal detail, and it's how the game recognises "you" between sessions.</p>
+      <p>If you choose to link a Google account (an optional upgrade so your progress can follow you to a new device), we additionally receive the basic profile information Google shares for sign-in: your name, email address, and profile photo, as permitted by your Google account settings.</p>
+
+      <h3>Gameplay and progress data</h3>
+      <p>The game stores the following directly on your device, using local on-device storage that isn't transmitted anywhere unless stated otherwise below:</p>
+      <ul>
+        <li>High score, coin balance, and lifetime stats (runs played, berries collected, near-misses, missions completed)</li>
+        <li>Unlocked and selected character skins</li>
+        <li>Achievements, daily streaks, and tutorial progress</li>
+        <li>The nickname you choose to display on the leaderboard</li>
+      </ul>
+
+      <h3>Leaderboard and social data</h3>
+      <p>If you view or appear on the leaderboard, your player ID, chosen nickname, and score are stored in our Cloud Firestore database and are visible to other players. If you add friends to compare scores, the friends' player IDs you've added are stored in the same way. We ask you not to include real names, contact details, or anything else identifying in your leaderboard nickname.</p>
+
+      <h3>Advertising data</h3>
+      <p>Berry Dash includes an optional "watch an ad to continue" (revive) feature powered by Google AdMob. Ads are shown only when you actively choose to watch one — the game never shows an ad without your action. To select and measure ads, Google's Mobile Ads SDK collects device and advertising identifiers and interacts with Google's advertising services under its own privacy policy, linked in the Third-party services section below.</p>
+
+      <h3>What we don't collect</h3>
+      <p>Berry Dash does not access your contacts, camera, microphone, precise location, photos, or files, and does not include any real-money purchases — in-game coins are earned by playing and can't be bought with real currency.</p>
+    </section>
+
+    <section class="doc-section" id="data-map">
+      <span class="section-index">03</span>
+      <h2>Data at a glance</h2>
+      <p>A short summary of where each type of information lives:</p>
+      <table class="datamap">
+        <thead>
+          <tr><th>Data</th><th>Where it's stored</th><th>Shared with</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">Player ID</td>
+            <td>Firebase Authentication, on device</td>
+            <td><span class="pill berry">Firebase</span></td>
+          </tr>
+          <tr>
+            <td class="label">Progress, stats, skins</td>
+            <td>On device only</td>
+            <td>Nobody</td>
+          </tr>
+          <tr>
+            <td class="label">Leaderboard entry &amp; nickname</td>
+            <td>Cloud Firestore</td>
+            <td><span class="pill berry">Firebase</span> · visible to other players</td>
+          </tr>
+          <tr>
+            <td class="label">Google account (if linked)</td>
+            <td>Firebase Authentication</td>
+            <td><span class="pill berry">Firebase</span> · <span class="pill leaf">Google Sign-In</span></td>
+          </tr>
+          <tr>
+            <td class="label">Advertising identifier</td>
+            <td>Not stored by us</td>
+            <td><span class="pill">Google AdMob</span>, only when you request an ad</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="doc-section" id="how-we-use-it">
+      <span class="section-index">04</span>
+      <h2>How we use this information</h2>
+      <ul>
+        <li><strong>To keep your progress:</strong> recognising your device between sessions so your high score, coins, and skins are there when you come back.</li>
+        <li><strong>To run the leaderboard:</strong> ranking and displaying scores against other players and any friends you've added.</li>
+        <li><strong>To offer the revive option:</strong> serving a single rewarded ad when you choose to watch one, and unlocking the in-game reward once it's been watched.</li>
+        <li><strong>To keep the game working correctly:</strong> basic technical operation of authentication and the leaderboard database.</li>
+      </ul>
+      <p class="muted">We do not use this information to build advertising profiles of you outside of Google's own ad-serving process described above, and we do not use it for any purpose other than the ones listed here.</p>
+    </section>
+
+    <section class="doc-section" id="third-party-services">
+      <span class="section-index">05</span>
+      <h2>Third-party services</h2>
+      <p>Berry Dash relies on the following outside services to work. Each handles the information described above under its own privacy policy, which we encourage you to review:</p>
+      <ul>
+        <li><strong>Firebase (Authentication &amp; Cloud Firestore)</strong>, provided by Google — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></li>
+        <li><strong>Google AdMob</strong>, for the optional rewarded ad — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+        <li><strong>Google Sign-In</strong>, only if you choose to link a Google account — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+      </ul>
+      <div class="callout"><strong>Note:</strong> these providers may process data on servers outside your own country, as described in their respective policies.</div>
+    </section>
+
+    <section class="doc-section" id="sharing">
+      <span class="section-index">06</span>
+      <h2>Data sharing and disclosure</h2>
+      <p>We don't sell, rent, or trade your information. We share it only:</p>
+      <ul>
+        <li>With the service providers named above, strictly to operate the features described in this policy</li>
+        <li>On the in-game leaderboard, which is visible to other players by design</li>
+        <li>If required to by law, regulation, or a valid legal request</li>
+        <li>If Berry Dash's ownership changes (for example, a merger or acquisition), in which case this policy would continue to apply until updated</li>
+      </ul>
+    </section>
+
+    <section class="doc-section" id="retention">
+      <span class="section-index">07</span>
+      <h2>Data retention</h2>
+      <p>Progress data stored on your device stays there until you uninstall the app or clear its storage. Leaderboard and account data in Firebase are kept for as long as your player ID is active, so your scores and unlocks persist across sessions. If you request deletion (see below), we remove this data from our systems within a reasonable time, other than any copies we're required to keep for legal or security reasons.</p>
+    </section>
+
+    <section class="doc-section" id="your-choices">
+      <span class="section-index">08</span>
+      <h2>Your choices and rights</h2>
+      <h3>Delete your data</h3>
+      <p>Uninstalling Berry Dash removes all locally stored progress from your device. To also remove your leaderboard entry and account record from our servers, contact us using the details below with your in-game nickname or player ID, and we'll delete it.</p>
+      <h3>Ad personalisation</h3>
+      <p>You can limit ad personalisation through your device's own settings — on Android, <em>Settings → Privacy → Ads</em>; on iOS, <em>Settings → Privacy &amp; Security → Tracking</em> — which apply across the apps you use, including Berry Dash.</p>
+      <h3>Regional privacy rights</h3>
+      <p>Depending on where you live, you may have rights to access, correct, or delete your personal information, or to object to or restrict how it's used (for example, under the GDPR in the EU/UK or the CCPA in California). To exercise any of these rights, contact us below and we'll respond within the timeframe required by applicable law.</p>
+    </section>
+
+    <section class="doc-section" id="childrens-privacy">
+      <span class="section-index">09</span>
+      <h2>Children's privacy</h2>
+      <p>Berry Dash is not directed at children under 13 and we don't knowingly collect personal information from them. If you believe a child has provided us with personal information, contact us and we'll delete it promptly. Parents and guardians who believe their child is using the game are welcome to reach out with any questions.</p>
+    </section>
+
+    <section class="doc-section" id="security">
+      <span class="section-index">10</span>
+      <h2>Security</h2>
+      <p>We rely on Firebase's built-in security infrastructure, including access rules that restrict who can read or write leaderboard data, to protect the information described in this policy. No method of transmission or storage is completely secure, but we work to use reasonable, industry-standard safeguards.</p>
+    </section>
+
+    <section class="doc-section" id="changes">
+      <span class="section-index">11</span>
+      <h2>Changes to this policy</h2>
+      <p>If we make material changes to this policy, we'll update the "Effective" date at the top of this page and, where appropriate, notify you in-app. We encourage you to check back occasionally.</p>
+    </section>
+
+    <section class="doc-section" id="contact">
+      <span class="section-index">12</span>
+      <h2>Contact us</h2>
+      <p>Questions about this policy, or requests to access or delete your data, can be sent to:</p>
+      <p><strong><a href="mailto:gulshidzada4@gmail.com">gulshidzada4@gmail.com</a></strong></p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="page-footer">
+  <div class="footer-inner">
+    <span>© 2026 Berry Dash</span>
+    <span>Privacy Policy · Effective 27 Sept 2026</span>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section.doc-section'));
+  var tocDesktop = document.getElementById('toc-list-desktop');
+  var tocPanel = document.getElementById('toc-panel');
+  var tocToggle = document.getElementById('toc-toggle');
+
+  var mobileList = document.createElement('ol');
+
+  sections.forEach(function(sec){
+    var title = sec.querySelector('h2').textContent;
+    var id = sec.id;
+
+    var li1 = document.createElement('li');
+    var a1 = document.createElement('a');
+    a1.href = '#' + id; a1.textContent = title; a1.dataset.target = id;
+    li1.appendChild(a1);
+    tocDesktop.appendChild(li1);
+
+    var li2 = document.createElement('li');
+    var a2 = document.createElement('a');
+    a2.href = '#' + id; a2.textContent = title; a2.dataset.target = id;
+    li2.appendChild(a2);
+    mobileList.appendChild(li2);
+  });
+  tocPanel.appendChild(mobileList);
+
+  tocToggle.addEventListener('click', function(){
+    var open = tocPanel.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    tocToggle.textContent = open ? 'Contents ▴' : 'Contents ▾';
+  });
+
+  tocPanel.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') {
+      tocPanel.classList.remove('open');
+      tocToggle.setAttribute('aria-expanded','false');
+      tocToggle.textContent = 'Contents ▾';
+    }
+  });
+
+  var allLinks = Array.prototype.slice.call(document.querySelectorAll('nav.toc a, .toc-panel a'));
+
+  function setActive(id){
+    allLinks.forEach(function(a){
+      a.classList.toggle('active', a.dataset.target === id);
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sections.forEach(function(sec){ observer.observe(sec); });
+  }
+
+  var backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    backToTop.classList.toggle('show', window.scrollY > 600);
+  });
+  backToTop.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>
